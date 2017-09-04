@@ -21,7 +21,7 @@ AlarmClock::AlarmClock(QWidget *parent) :
     filePath = "mytask.dat"; //путь к файлу с заданиями
     messageBox = new QMessageBox(this); //окно будильника с текстом задния
     messageBox->setModal(false); //если оставить модальным то звук не проигрывается
-    messageBox->setMinimumSize(280, 320); //эта не работает. Почему???
+    messageBox->setMinimumSize(280, 320); //это не работает. Почему???
 
     ui->groupBox->hide();//прячем список задач
     layout()->setSizeConstraint(QLayout::SetFixedSize);//размер окна по содержимому
@@ -40,7 +40,7 @@ AlarmClock::AlarmClock(QWidget *parent) :
     openDataFile();//открываем файл с заданиями
     setLabelText();//обнавляем информацию по колличеству заданий
     updateInfo();//обновляем список заданий
-    connect(myTimer, SIGNAL(timeout()), this, SLOT(getAlarm()));//проверяем, надо ли срабатывание будильника
+    connect(myTimer, SIGNAL(timeout()), this, SLOT(getAlarm()));// срабатывание будильника
     connect(myTimer, SIGNAL(timeout()), this, SLOT(showDateTime()));//ежесекундно обновляем текущее время
     connect(ui->deleteEventButton, SIGNAL(clicked()), this, SLOT(deleteAlarm()));//удаляем выбранное задание
     connect(dialogAlarm->addButton, SIGNAL(clicked()), this, SLOT(addAlarm()));//добавляем новое задание
@@ -49,7 +49,7 @@ AlarmClock::AlarmClock(QWidget *parent) :
     /////////////////////////////
     myDialog = new MessageDialog(this);
     myDialog->show();
-    myDialog->setText("Hallo");
+    myDialog->setText("Hello");
     /////////////////////////////
 
 }
